@@ -1,3 +1,4 @@
+/*
 package com.apps.kasrazhino.addonclass;
 
 import android.Manifest;
@@ -150,3 +151,4 @@ public class the_main_weather extends AppCompatActivity {
         }
     }
 }
+*/

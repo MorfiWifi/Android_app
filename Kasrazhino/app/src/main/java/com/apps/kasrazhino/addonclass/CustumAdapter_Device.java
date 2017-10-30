@@ -1,3 +1,4 @@
+/*
 package com.apps.kasrazhino.addonclass;
 
 import android.app.Activity;
@@ -47,8 +48,10 @@ public class CustumAdapter_Device extends BaseAdapter {
 
     public CustumAdapter_Device(Context context, ArrayList<GpsDevice> data) {
 
-        /*y = y/2;
-        x = x/2;*/
+        */
+/*y = y/2;
+        x = x/2;*//*
+
         this.context = context;
         items = data;
         inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
@@ -107,10 +110,12 @@ public class CustumAdapter_Device extends BaseAdapter {
 
         //Gson gson = new Gson();
 
-        /*SharedPreferences sharedPreferences = context.getSharedPreferences("Prefs", Context.MODE_PRIVATE);
+        */
+/*SharedPreferences sharedPreferences = context.getSharedPreferences("Prefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("hashmap", gson.toJson(dev));
-        editor.apply();*/
+        editor.apply();*//*
+
 
 
         if (view == null) {
@@ -483,3 +488,4 @@ public class CustumAdapter_Device extends BaseAdapter {
     }
 
 }
+*/

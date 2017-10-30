@@ -1,3 +1,4 @@
+/*
 package com.apps.kasrazhino.addonclass;
 
 import android.app.Activity;
@@ -27,9 +28,11 @@ import alcazer.morfi.ridetrack.SettingActivity;
 import alcazer.morfi.ridetrack.log_app_pass;
 import alcazer.morfi.ridetrack.log_dev_pass;
 
+*/
 /**
  * Created by WifiMorfi on 8/5/2017.
- */
+ *//*
+
 
 public class Alert_MI {
     public static Context context;
@@ -98,8 +101,8 @@ public class Alert_MI {
 
                             DBManager db = new DBManager(main.getBaseContext());
                             // FIXME: 8/5/2017 insert history ...
-                            
-                           
+
+
                             db.Close();
                         }
                         if (MOD == 1){
@@ -438,10 +441,12 @@ public class Alert_MI {
                             SMS.Send_sms(db.getDevice_BYSIM(device.simnumber).get(0) ,"A?","A?" );
                             db.Close();
                             Toast.makeText(activity.getBaseContext() ,"تغییرات اعمال شد" , Toast.LENGTH_SHORT).show();
-                            /*Intent intent = new Intent(activity.getApplicationContext() , Device_list_v2.class);
+                            */
+/*Intent intent = new Intent(activity.getApplicationContext() , Device_list_v2.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             activity.startActivity(intent);
-                            activity.finish();*/
+                            activity.finish();*//*
+
                             dialog.cancel();
                         }catch (Exception e){
                             Log.i("ERROR" , "ALERT_SIM");
@@ -472,10 +477,12 @@ public class Alert_MI {
                             SMS.Send_sms(db.getDevice_BYSIM(device.simnumber).get(0) ,"A?","A?" );
                             db.Close();
                             Toast.makeText(activity.getBaseContext() ,"تغییرات اعمال شد" , Toast.LENGTH_SHORT).show();
-                            /*Intent intent = new Intent(activity.getApplicationContext() , Device_list_v2.class);
+                            */
+/*Intent intent = new Intent(activity.getApplicationContext() , Device_list_v2.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             activity.startActivity(intent);
-                            activity.finish();*/
+                            activity.finish();*//*
+
                             dialog.cancel();
                         }catch (Exception e){
                             Log.i("ERROR" , "ALERT_SIM");
@@ -489,3 +496,4 @@ public class Alert_MI {
 //    startActivity(intent);
 //    finish();  //Use to chainge The ACTIVITY....
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.apps.kasrazhino.addonclass;
 
 import android.content.ContentValues;
@@ -13,9 +14,11 @@ import java.util.ArrayList;
 import alcazer.morfi.ridetrack.GpsDevice;
 import alcazer.morfi.ridetrack.Setting_item;
 
+*/
 /**
  * Created by Morfi on 4/29/2017.
- */
+ *//*
+
 
 public class DBManager {
     private SQLiteDatabase sqlDB;
@@ -725,3 +728,4 @@ public class DBManager {
         sqlDB.close();
         }
         }
+*/
