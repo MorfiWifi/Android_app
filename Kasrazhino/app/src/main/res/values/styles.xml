@@ -34,4 +34,9 @@
     <item name="android:background">@color/black_overlay</item>
 </style>
 
+    <style name="BaseTheme_Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="actionMenuTextColor">@android:color/black</item>
+    </style>
+
+
 </resources>

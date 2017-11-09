@@ -286,4 +286,9 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
 
+
+    <color name="mode_background">#9FA8DA</color>
+    <color name="mode_background_when_selected">#e8eaf6</color>
+    <color name="theme_color_highlight">#F2717171</color>
+
 </resources>
