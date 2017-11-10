@@ -1,7 +1,7 @@
 <resources>
 
 <!-- Base application theme. -->
-<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+<style name="AppTheme" >
     <!-- Customize your theme here. -->
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -18,9 +18,9 @@
     <item name="windowNoTitle">true</item>
 </style>
 
-<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+<style name="AppTheme.AppBarOverlay" parent="AppTheme" />
 
-<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+<style name="AppTheme.PopupOverlay" parent="AppTheme" />
 
 <style name="FullscreenTheme" parent="AppTheme">
     <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
@@ -30,11 +30,11 @@
     <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
 </style>
 
-<style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+<style name="FullscreenActionBarStyle" parent="AppTheme">
     <item name="android:background">@color/black_overlay</item>
 </style>
 
-    <style name="BaseTheme_Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+    <style name="BaseTheme_Toolbar" parent="AppTheme">
         <item name="actionMenuTextColor">@android:color/black</item>
     </style>
 
