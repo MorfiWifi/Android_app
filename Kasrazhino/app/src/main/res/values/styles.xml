@@ -3,6 +3,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 87649a6... -merging -reversing!
 <!-- Base application theme. -->
 <style name="AppTheme" >
     <!-- Customize your theme here. -->
@@ -36,6 +39,7 @@
 <style name="FullscreenActionBarStyle" parent="AppTheme">
     <item name="android:background">@color/black_overlay</item>
 </style>
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of 9b8264b... -temp log in added
@@ -77,6 +81,8 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> parent of 9b8264b... -temp log in added
+=======
+>>>>>>> parent of 87649a6... -merging -reversing!
 
     <style name="BaseTheme_Toolbar" parent="AppTheme">
         <item name="actionMenuTextColor">@android:color/black</item>
