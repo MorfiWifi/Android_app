@@ -37,7 +37,6 @@ public class AsyncHttp {
                 Log.i("weather" , "Sucsess! JSOn");
                 try {
 
-
                     String res_name =
                     response.getJSONObject(0).getString("Name");
                     Toast.makeText(context , res_name ,Toast.LENGTH_SHORT).show();
