@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-
 import com.apps.kasrazhino.fortest.AsyncHttp;
 import com.loopj.android.http.RequestParams;
 
@@ -17,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         AsyncHttp http = new AsyncHttp();
         RequestParams requestParams = new RequestParams();
+        requestParams = null;
         http.testApi( getApplicationContext() , requestParams );
 
         Animation animation = AnimationUtils.loadAnimation(this , R.anim.move_left);

@@ -32,14 +32,19 @@ public class AsyncHttp {
 
         client.get(WEATHER_URL , params ,new JsonHttpResponseHandler(){
             @Override
-            public void onSuccess (int statusCod , Header[] headers , JSONObject response ){
+            public void onSuccess (int statusCod , Header[] headers , JSONArray response ){
                 Log.i("web_res" , response.toString());
                 Log.i("weather" , "Sucsess! JSOn");
                 try {
-                    Toast.makeText(context , "REQUEST Succes" ,Toast.LENGTH_SHORT).show();
-                    JSONArray ja =
-                    response.getJSONArray("0");
-                    Log.i("RECIVED" , ja.toString());
+
+
+                    String res_name =
+                    response.getJSONObject(0).getString("Name");
+                    Toast.makeText(context , res_name ,Toast.LENGTH_SHORT).show();
+
+                   /* JSONArray ja =
+                    response.getJSONArray("0");*/
+                    Log.i("RECIVED" , res_name);
 
                 }catch (Exception e){
                     Log.i("RECIVED" , "FAILD : "+e.getMessage().toString());
