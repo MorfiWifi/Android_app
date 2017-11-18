@@ -1,11 +1,14 @@
 package com.apps.kasrazhino.kasrazhino;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
+
+import com.apps.kasrazhino.kasrazhino.Stuff_List.StuffList;
 
 public class MainActivity extends AppCompatActivity {
     static public int i = 0;
@@ -18,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
         Animation animation = AnimationUtils.loadAnimation(this , R.anim.move_left);
 
 //        findViewById(R.id.loginback).startAnimation(animation);
+
+        Intent intent = new Intent(this,StuffList.class);
+        startActivity(intent);
 
 
 }
