@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Kasrazhino</string>
-    <string name="title_activity_list">" "</string>
+    <string name="app_name">کسرا صنعت</string>
     <string name="pref_access_token" translatable="false">pref_access_token</string>
     <string name="pref_expire_in_sec" translatable="false">pref_expire_in_sec</string>
     <string name="pref_expire_at" translatable="false">pref_expire_at</string>
@@ -12,6 +11,11 @@
     <string name="pref_user_image_url">pref_user_image_url</string>
     <string name="title_activity_login">Sign in</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
-    <string name="action_settings">Settings</string>
+    <string name="title_activity_list">" "</string>
 
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main_menue">MainMenue</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

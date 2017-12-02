@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginBottom="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/incomecalls_blue"
+    android:gravity="center"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+
+        <ImageView
+
+            android:id="@+id/delet"
+            android:layout_weight="0.1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/x_button"
+            android:scaleType="fitStart"
+
+            />
+
+
+        <TextView
+            android:maxLength="20"
+            android:id="@+id/top_name"
+            android:text="theName"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_weight="0.03"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            android:id="@+id/more"
+            android:layout_weight="0.1"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/more"
+            android:scaleType="fitEnd"
+
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/rec_wite">
+
+        <ImageView
+            android:layout_weight="0.1"
+            android:id="@+id/content_image"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            app:srcCompat="@mipmap/stuff"
+            android:scaleType="fitXY"
+            android:background="@drawable/rec_wite"
+            />
+
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/name1"
+            android:text="theName"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_weight="0.1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:id="@+id/name2"
+            android:text="Name2"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_weight="0.1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+
+        <android.support.v4.widget.Space
+            android:layout_weight="0.1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/bottom_text"
+            android:layout_width="match_parent"
+            android:layout_weight="0.06"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="جزئیات"
+            android:background="#02adb5"
+            android:layout_height="wrap_content" />
+
+        <android.support.v4.widget.Space
+            android:layout_weight="0.1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

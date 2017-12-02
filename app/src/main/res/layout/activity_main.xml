@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.apps.kasrazhino.ui.MainActivity">
+    tools:context=".ui.MainActivityCall">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/default_toolbar"
@@ -28,10 +28,8 @@
                 android:gravity="right"
                 android:hint="جستجو"
                 android:inputType="text"
-                android:textAlignment="textEnd"
                 android:textColorLink="@android:color/background_light"
-                android:visibility="visible"
-                tools:ignore="RtlCompat" />
+                android:visibility="gone" />
 
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
