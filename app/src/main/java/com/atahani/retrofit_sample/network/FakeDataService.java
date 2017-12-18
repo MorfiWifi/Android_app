@@ -5,6 +5,7 @@ import com.atahani.retrofit_sample.models.AuthenticationResponseModel;
 import com.atahani.retrofit_sample.models.CallModel;
 import com.atahani.retrofit_sample.models.ContractModel;
 import com.atahani.retrofit_sample.models.CustomerModel;
+import com.atahani.retrofit_sample.models.LogInViewModel;
 import com.atahani.retrofit_sample.models.OrderModel;
 import com.atahani.retrofit_sample.models.Order_DetailsModel;
 import com.atahani.retrofit_sample.models.ProductModel;
@@ -157,6 +158,11 @@ public interface FakeDataService {
     @DELETE("Users/{id}")
     Call<UserModel> deleteuserById(@Path("id") String Id);
 //////////////////////////////////////////////
+
+    @POST("token")
+    Call<LogInViewModel> LogIn(@Body LogInViewModel logInViewModel);
+
+
 
 
     @POST("signup")

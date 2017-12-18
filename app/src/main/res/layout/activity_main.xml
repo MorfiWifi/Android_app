@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivityCall">
 
+    <android.support.v7.widget.SearchView
+        android:id="@+id/Search"
+        android:layout_below="@id/default_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.SearchView>
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/default_toolbar"
         android:layout_width="match_parent"
@@ -36,7 +44,7 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/ry_list"
+        android:layout_below="@id/Search"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/default_toolbar" />
+        android:layout_height="match_parent" />
 </RelativeLayout>

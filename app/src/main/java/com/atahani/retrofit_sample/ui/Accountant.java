@@ -8,9 +8,8 @@ import android.widget.Toast;
 
 import com.atahani.retrofit_sample.R;
 import com.atahani.retrofit_sample.adapter.DataAdapterCall;
-import com.atahani.retrofit_sample.models.AuthenticationResponseModel;
 import com.atahani.retrofit_sample.models.ErrorModel;
-import com.atahani.retrofit_sample.models.SignInRequestModel;
+import com.atahani.retrofit_sample.models.LogInViewModel;
 import com.atahani.retrofit_sample.network.FakeDataProvider;
 import com.atahani.retrofit_sample.network.FakeDataService;
 import com.atahani.retrofit_sample.utility.ErrorUtils;
@@ -46,13 +45,13 @@ public class Accountant extends AppCompatActivity {
 
 
 
-        SignInRequestModel signInRequestModel = new SignInRequestModel();
-        signInRequestModel.email = "admin";
-        signInRequestModel.password = "bbBB11!!";
+        LogInViewModel logInViewModel = new LogInViewModel();
+        logInViewModel.setUserName("admin");
+        logInViewModel.setPassword("bbBB11!!");
 
 
         try{
-            Sighnin(signInRequestModel);
+            Login(logInViewModel);
         }catch (Exception e){
             Toast.makeText(getBaseContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -62,11 +61,11 @@ public class Accountant extends AppCompatActivity {
 
     }
 
-    private void Sighnin(SignInRequestModel signInRequestModel) {
-        Call<AuthenticationResponseModel> sighnin = mTService.signIn(signInRequestModel);
-        sighnin.enqueue(new Callback<AuthenticationResponseModel>() {
+    private void Login (LogInViewModel logInViewModel) {
+        Call login = mTService.LogIn(logInViewModel);
+        login.enqueue(new Callback<LogInViewModel>() {
             @Override
-            public void onResponse(Call<AuthenticationResponseModel> call, Response<AuthenticationResponseModel> response) {
+            public void onResponse(Call call, Response response) {
                 if (response.isSuccessful()) {
                     //update the adapter data
                     // mAdapter.updateAdapterData(response.body());
@@ -76,19 +75,13 @@ public class Accountant extends AppCompatActivity {
                     ErrorModel errorModel = ErrorUtils.parseError(response);
                     Toast.makeText(getBaseContext(), "Couldnt Log in" + errorModel.Message + " , description " + errorModel.MessageDetail, Toast.LENGTH_SHORT).show();
                 }
-
             }
 
             @Override
-            public void onFailure(Call<AuthenticationResponseModel> call, Throwable t) {
-                try {
-                    Toast.makeText(getBaseContext(), "Fail it >> " + t.getMessage(), Toast.LENGTH_LONG).show();
-                }catch (Exception e){
-
-                }
+            public void onFailure(Call call, Throwable t) {
+                Toast.makeText(getBaseContext(), "Couldnt Log in" + t.getMessage() + " , description " , Toast.LENGTH_SHORT).show();
 
             }
-
 
 
         });

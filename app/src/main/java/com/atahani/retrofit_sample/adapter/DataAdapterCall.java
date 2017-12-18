@@ -5,12 +5,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.atahani.retrofit_sample.R;
 import com.atahani.retrofit_sample.models.CallModel;
+import com.atahani.retrofit_sample.ui.CustomFilter;
 import com.atahani.retrofit_sample.utility.AppPreferenceTools;
 import com.atahani.retrofit_sample.utility.shamsiDate;
 
@@ -21,11 +24,12 @@ import java.util.List;
 /**
  *  Adapter show tweet in Recycler view
  */
-public class DataAdapterCall extends RecyclerView.Adapter<DataAdapterCall.DataViewHolder> {
+public class DataAdapterCall extends RecyclerView.Adapter<DataAdapterCall.DataViewHolder> implements Filterable{
 
     private Context mContext;
     private LayoutInflater mLayoutInflater;
-    private List<CallModel> mData = Collections.emptyList();
+    public List<CallModel> mData = Collections.emptyList();
+    private List<CallModel> filterList;
     private DataEventHandler mDataEventHandler;
     private AppPreferenceTools mAppPreferenceTools;
 
@@ -75,6 +79,17 @@ public class DataAdapterCall extends RecyclerView.Adapter<DataAdapterCall.DataVi
         return mData.size();
     }
 
+    CustomFilter filter;
+
+    @Override
+    public Filter getFilter() {
+        if (filter == null){
+
+            filter = new CustomFilter(this,filterList);
+        }
+        return filter;
+    }
+
     /**
      * view holder for tweet adapter we have one view as data_rowxml layout
      */
@@ -87,6 +102,8 @@ public class DataAdapterCall extends RecyclerView.Adapter<DataAdapterCall.DataVi
         private TextView mTxDate;
 
         public DataViewHolder(View itemView) {
+
+            //TextUtils.isEmpty("sad");
             super(itemView);
             mLymain = (LinearLayout) itemView.findViewById(R.id.main);
             mTxBody = (TextView) itemView.findViewById(R.id.top_name);

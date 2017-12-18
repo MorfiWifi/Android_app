@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.support.v7.widget.SearchView;
 import android.widget.Toast;
 
 import com.atahani.retrofit_sample.R;
@@ -31,10 +32,33 @@ public class MainActivityCall extends AppCompatActivity {
     private FakeDataService mTService;
     private RecyclerView mRylist;
     private  Toolbar toolbar;
+    private SearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+            //search
+
+            searchView = (SearchView) findViewById(R.id.Search);
+
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String query) {
+                    mAdapter.getFilter().filter(query);
+                    return false;
+                }
+            });
+
+
+            //
 
              toolbar = (Toolbar) findViewById(R.id.default_toolbar);
             setSupportActionBar(toolbar);

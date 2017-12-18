@@ -5,9 +5,9 @@ package com.atahani.retrofit_sample.models;
  */
 
 public class RoleModel {
-public  String StoreKeeper;
-public String Accountant;
-public String Administrator;
+    public  String StoreKeeper;
+    public String Accountant;
+    public String Administrator;
     public String Secretary;
 
 }
