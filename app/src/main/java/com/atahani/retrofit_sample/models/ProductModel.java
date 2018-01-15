@@ -56,4 +56,8 @@ public class ProductModel {
         });
     }
 
+    public String getTitle(){
+        return this.Name;
+    }
+
 }

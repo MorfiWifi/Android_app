@@ -29,7 +29,9 @@ public class DataAdapterCall extends RecyclerView.Adapter<DataAdapterCall.DataVi
     private Context mContext;
     private LayoutInflater mLayoutInflater;
     public List<CallModel> mData = Collections.emptyList();
+    // Search :
     private List<CallModel> filterList;
+    private CustomFilter filter;
     private DataEventHandler mDataEventHandler;
     private AppPreferenceTools mAppPreferenceTools;
 
@@ -42,6 +44,8 @@ public class DataAdapterCall extends RecyclerView.Adapter<DataAdapterCall.DataVi
 
     public void updateAdapterData(List<CallModel> data) {
         this.mData = data;
+        // Search
+        this.filterList = mData;
     }
 
 
@@ -67,7 +71,7 @@ public class DataAdapterCall extends RecyclerView.Adapter<DataAdapterCall.DataVi
 
         String c = new String(currentModel.Date.toString());
         String time= (String) c.subSequence(11,19);
-//date+ " "+time
+        //date+ " "+time
 
         holder.mTxDate.setText(date+ " "+time );
 
@@ -79,13 +83,12 @@ public class DataAdapterCall extends RecyclerView.Adapter<DataAdapterCall.DataVi
         return mData.size();
     }
 
-    CustomFilter filter;
 
     @Override
     public Filter getFilter() {
         if (filter == null){
 
-            filter = new CustomFilter(this,filterList);
+            filter = new CustomFilter(this, filterList, "call");
         }
         return filter;
     }
@@ -155,4 +158,7 @@ public class DataAdapterCall extends RecyclerView.Adapter<DataAdapterCall.DataVi
         void onDeleteData(String Id, int position);
         void onDetailData(String Id, int position);
     }
+
+
+
 }

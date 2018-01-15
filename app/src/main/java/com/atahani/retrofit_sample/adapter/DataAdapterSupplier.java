@@ -5,12 +5,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.atahani.retrofit_sample.R;
+import com.atahani.retrofit_sample.models.CallModel;
 import com.atahani.retrofit_sample.models.SupplierModel;
+import com.atahani.retrofit_sample.ui.CustomFilter;
 import com.atahani.retrofit_sample.utility.AppPreferenceTools;
 
 import java.util.Collections;
@@ -20,11 +24,14 @@ import java.util.List;
  * Created by m.hosein on 11/10/2017.
  */
 
-public class DataAdapterSupplier extends RecyclerView.Adapter<DataAdapterSupplier.DataViewHolder> {
+public class DataAdapterSupplier extends RecyclerView.Adapter<DataAdapterSupplier.DataViewHolder> implements Filterable {
 
     private Context mContext;
     private LayoutInflater mLayoutInflater;
-    private List<SupplierModel> mData = Collections.emptyList();
+    public List<SupplierModel> mData = Collections.emptyList();
+    // Search :
+    private List<SupplierModel> filterList;
+    private CustomFilter filter;
     private DataEventHandler mDataEventHandler;
     private AppPreferenceTools mAppPreferenceTools;
 
@@ -43,6 +50,8 @@ public class DataAdapterSupplier extends RecyclerView.Adapter<DataAdapterSupplie
 
     public void updateAdapterData(List<SupplierModel> data) {
         this.mData = data;
+        // Search
+        this.filterList = mData;
     }
 
 
@@ -56,6 +65,15 @@ public class DataAdapterSupplier extends RecyclerView.Adapter<DataAdapterSupplie
     @Override
     public int getItemCount() {
         return mData.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        if (filter == null){
+
+            filter = new CustomFilter(this, filterList, "supplier");
+        }
+        return filter;
     }
 
     public class DataViewHolder extends RecyclerView.ViewHolder {

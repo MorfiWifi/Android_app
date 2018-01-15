@@ -17,4 +17,8 @@ public class SupplierModel {
     public List<ProductModel> Products;
     public int UnitsInStock;
     public int Price;
+
+    public String getTitle(){
+        return this.CompanyName;
+    }
 }

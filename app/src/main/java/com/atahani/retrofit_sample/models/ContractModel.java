@@ -11,4 +11,8 @@ public class ContractModel {
     public int Id;
     public String Content;
     public List<OrderModel> Orders;
+
+    public String getTitle(){
+        return this.Content;
+    }
 }

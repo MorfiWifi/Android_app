@@ -5,12 +5,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.atahani.retrofit_sample.R;
+import com.atahani.retrofit_sample.models.CallModel;
 import com.atahani.retrofit_sample.models.UserModel;
+import com.atahani.retrofit_sample.ui.CustomFilter;
 import com.atahani.retrofit_sample.utility.AppPreferenceTools;
 
 import java.util.Collections;
@@ -20,11 +24,14 @@ import java.util.List;
  * Created by m.hosein on 11/12/2017.
  */
 
-public class DataAdapterUser extends RecyclerView.Adapter<DataAdapterUser.DataViewHolder> {
+public class DataAdapterUser extends RecyclerView.Adapter<DataAdapterUser.DataViewHolder> implements Filterable {
 
     private Context mContext;
     private LayoutInflater mLayoutInflater;
-    private List<UserModel> mData = Collections.emptyList();
+    public List<UserModel> mData = Collections.emptyList();
+    // Search :
+    private List<UserModel> filterList;
+    private CustomFilter filter;
     private DataEventHandler mDataEventHandler;
     private AppPreferenceTools mAppPreferenceTools;
 
@@ -43,6 +50,8 @@ public class DataAdapterUser extends RecyclerView.Adapter<DataAdapterUser.DataVi
 
     public void updateAdapterData(List<UserModel> data) {
         this.mData = data;
+        // Search
+        this.filterList = mData;
     }
 
 
@@ -56,6 +65,15 @@ public class DataAdapterUser extends RecyclerView.Adapter<DataAdapterUser.DataVi
     @Override
     public int getItemCount() {
         return mData.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        if (filter == null){
+
+            filter = new CustomFilter(this, filterList, "user");
+        }
+        return filter;
     }
 
     public class DataViewHolder extends RecyclerView.ViewHolder {

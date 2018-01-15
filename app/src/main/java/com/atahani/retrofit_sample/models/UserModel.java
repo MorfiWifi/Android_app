@@ -13,4 +13,8 @@ public class UserModel {
     public int OverTime;
     public int Benefits;
 
+    public String getTitle(){
+        return this.UserName;
+    }
+
 }

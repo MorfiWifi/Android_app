@@ -5,12 +5,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.atahani.retrofit_sample.R;
+import com.atahani.retrofit_sample.models.CallModel;
 import com.atahani.retrofit_sample.models.ContractModel;
+import com.atahani.retrofit_sample.ui.CustomFilter;
 import com.atahani.retrofit_sample.utility.AppPreferenceTools;
 
 import java.util.Collections;
@@ -20,11 +24,14 @@ import java.util.List;
  * Created by m.hosein on 11/12/2017.
  */
 
-public class DataAdapterContract extends RecyclerView.Adapter<DataAdapterContract.DataViewHolder> {
+public class DataAdapterContract extends RecyclerView.Adapter<DataAdapterContract.DataViewHolder> implements Filterable {
 
     private Context mContext;
     private LayoutInflater mLayoutInflater;
-    private List<ContractModel> mData = Collections.emptyList();
+    public List<ContractModel> mData = Collections.emptyList();
+    //search :
+    private List<ContractModel> filterList;
+    private CustomFilter filter;
     private DataEventHandler mDataEventHandler;
     private AppPreferenceTools mAppPreferenceTools;
 
@@ -37,6 +44,8 @@ public class DataAdapterContract extends RecyclerView.Adapter<DataAdapterContrac
 
     public void updateAdapterData(List<ContractModel> data) {
         this.mData = data;
+        // Search
+        this.filterList = mData;
     }
 
 
@@ -60,6 +69,15 @@ public class DataAdapterContract extends RecyclerView.Adapter<DataAdapterContrac
     @Override
     public int getItemCount() {
         return mData.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        if (filter == null){
+
+            filter = new CustomFilter(this, filterList, "contact");
+        }
+        return filter;
     }
 
     /**

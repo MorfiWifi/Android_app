@@ -11,4 +11,9 @@ public class CallModel {
     public String Message;
     public Date Date;
 
+
+    public String getTitle(){
+        return this.Message;
+    }
+
 }

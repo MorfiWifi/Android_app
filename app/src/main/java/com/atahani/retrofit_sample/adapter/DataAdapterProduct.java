@@ -5,12 +5,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.atahani.retrofit_sample.R;
+import com.atahani.retrofit_sample.models.ContractModel;
 import com.atahani.retrofit_sample.models.ProductModel;
+import com.atahani.retrofit_sample.ui.CustomFilter;
 import com.atahani.retrofit_sample.utility.AppPreferenceTools;
 
 import java.util.Collections;
@@ -20,10 +24,13 @@ import java.util.List;
  * Created by m.hosein on 11/13/2017.
  */
 
-public class DataAdapterProduct extends RecyclerView.Adapter<DataAdapterProduct.DataViewHolder> {
+public class DataAdapterProduct extends RecyclerView.Adapter<DataAdapterProduct.DataViewHolder> implements Filterable {
     private Context mContext;
     private LayoutInflater mLayoutInflater;
-    private List<ProductModel> mData = Collections.emptyList();
+    public List<ProductModel> mData = Collections.emptyList();
+    //search :
+    private List<ProductModel> filterList;
+    private CustomFilter filter;
     private DataEventHandler mDataEventHandler;
     private AppPreferenceTools mAppPreferenceTools;
 
@@ -36,6 +43,8 @@ public class DataAdapterProduct extends RecyclerView.Adapter<DataAdapterProduct.
 
     public void updateAdapterData(List<ProductModel> data) {
         this.mData = data;
+        // Search
+        this.filterList = mData;
     }
 
 
@@ -59,6 +68,15 @@ public class DataAdapterProduct extends RecyclerView.Adapter<DataAdapterProduct.
     @Override
     public int getItemCount() {
         return mData.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        if (filter == null){
+
+            filter = new CustomFilter(this, filterList, "product");
+        }
+        return filter;
     }
 
     /**

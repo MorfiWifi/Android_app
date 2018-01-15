@@ -1,6 +1,7 @@
 package com.atahani.retrofit_sample.ui;
 
 import android.content.Intent;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -32,7 +33,7 @@ public class MainActivityCall extends AppCompatActivity {
     private FakeDataService mTService;
     private RecyclerView mRylist;
     private  Toolbar toolbar;
-    private SearchView searchView;
+    //private SearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,27 +41,8 @@ public class MainActivityCall extends AppCompatActivity {
 
 
 
-            //search
 
-            searchView = (SearchView) findViewById(R.id.Search);
-
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String query) {
-                    return false;
-                }
-
-                @Override
-                public boolean onQueryTextChange(String query) {
-                    mAdapter.getFilter().filter(query);
-                    return false;
-                }
-            });
-
-
-            //
-
-             toolbar = (Toolbar) findViewById(R.id.default_toolbar);
+            toolbar = (Toolbar) findViewById(R.id.default_toolbar);
             setSupportActionBar(toolbar);
             getSupportActionBar().setTitle("لیست تماس ها");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -163,16 +145,33 @@ public class MainActivityCall extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_default, menu);
-        return super.onCreateOptionsMenu(menu);
+
+
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                mAdapter.getFilter().filter(query);
+                return false;
+            }
+        });
+
+        return true;
+
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_search) {
-            EditText txsearch = (EditText) toolbar.findViewById(R.id.Etsearch);
-           // txsearch.setVisibility(View.VISIBLE);
 
+            return true;
         }
 
         if (id == R.id.action_add) {

@@ -18,5 +18,8 @@ public class CustomerModel {
     public List<Order_DetailsModel> Order_Details;
 
 
+    public String getTitle(){
+        return this.Name;
+    }
 
 }

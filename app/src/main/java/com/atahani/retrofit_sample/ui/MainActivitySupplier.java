@@ -2,9 +2,11 @@ package com.atahani.retrofit_sample.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -142,17 +144,34 @@ public class MainActivitySupplier  extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_default, menu);
-        return super.onCreateOptionsMenu(menu);
+
+
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                mAdapter.getFilter().filter(query);
+                return false;
+            }
+        });
+
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_search) {
-            EditText txsearch = (EditText) toolbar.findViewById(R.id.Etsearch);
-            // txsearch.setVisibility(View.VISIBLE);
 
+            return true;
         }
+
 
         if (id == R.id.action_add) {
             //start new activity to send
